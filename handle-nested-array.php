@@ -117,7 +117,7 @@ $guests = [
     ],
 ];
 
-// Solution to question 1
+/** Function to print guests as key-value pairs */
 function printGuestInformation(array $guests)
 {
     foreach ($guests as $index => $guest) {
@@ -131,7 +131,7 @@ function printGuestInformation(array $guests)
 
                 foreach ($value as $subkey => $subvalue) {
                     if (is_array($subvalue)) {
-                        printPairsFromArray([$subvalue]);
+                        printGuestInformation([$subvalue]);
                     } else {
                         if (!is_null($subvalue)) {
                             echo "$subkey: $subvalue\n";
@@ -150,6 +150,7 @@ function printGuestInformation(array $guests)
     }
 }
 
+/** Function to format a string readably */
 function formatString(string $str): string
 {
     $str = str_replace('_', ' ', $str);
@@ -158,4 +159,5 @@ function formatString(string $str): string
     return $str;
 }
 
-printPairsFromArray($guests);
+/** Call function to print guest information*/
+printGuestInformation($guests);
