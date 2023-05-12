@@ -3,7 +3,7 @@
 require 'guests_information.php';
 
 /** Function to print guests as key-value pairs */
-function printGuestInformation(array $guests)
+function printGuestInformation(array $guests): void
 {
     foreach ($guests as $index => $guest) {
         if (array_key_exists('guest_id', $guest)) {
